@@ -1,0 +1,32 @@
+// C++ code
+//
+#define led           12
+#define pulsador1     10
+#define pulsador2     9
+#define pulsador3     8
+void setup() {
+  pinMode(led, OUTPUT);
+  pinMode(pulsador1, INPUT);
+  pinMode(pulsador2, INPUT);
+  pinMode(pulsador3, INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if ((digitalRead(pulsador1) == HIGH) && (digitalRead(pulsador2) == HIGH) && (digitalRead(pulsador3) == HIGH))
+    {
+    digitalWrite(led, HIGH);
+ }
+  else if ((digitalRead(pulsador1) == HIGH) && (digitalRead(pulsador2) == HIGH) && (digitalRead(pulsador3) == LOW))
+    {
+    digitalWrite(led, HIGH);
+ }
+  else if ((digitalRead(pulsador1) == LOW) && (digitalRead(pulsador2) == HIGH) && (digitalRead(pulsador3) == LOW))
+    {
+    digitalWrite(led, HIGH);
+ }
+  else {
+    digitalWrite(led, LOW);
+  }
+  delay(100);
+}
